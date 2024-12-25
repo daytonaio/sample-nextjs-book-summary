@@ -27,12 +27,12 @@
   { 
     "source": "${localWorkspaceFolder}/frontend", 
     "target": "/workspace/frontend", 
-    "type": "bind", 
+    "type": "bind"
   },
   { 
     "source": "${localWorkspaceFolder}/backend", 
     "target": "/workspace/backend", 
-    "type": "bind", 
+    "type": "bind"
   }
 ],
   "forwardPorts": [3000, 8000, 7700],
