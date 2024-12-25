@@ -1,6 +1,6 @@
 {
   "name": "Daytona.io Dev Container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", // You can change the base image if needed
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
   "features": {
     "docker-in-docker": "latest",
     "node": "lts"
@@ -23,10 +23,18 @@
     ],
     "terminal.integrated.shell.linux": "/bin/bash"
   },
-  "mounts": [
-    "source=${localWorkspaceFolder}/frontend,target=/workspace/frontend,type=bind,consistency=cached",
-    "source=${localWorkspaceFolder}/backend,target=/workspace/backend,type=bind,consistency=cached"
-  ],
+"mounts": [
+  { 
+    "source": "${localWorkspaceFolder}/frontend", 
+    "target": "/workspace/frontend", 
+    "type": "bind", 
+  },
+  { 
+    "source": "${localWorkspaceFolder}/backend", 
+    "target": "/workspace/backend", 
+    "type": "bind", 
+  }
+],
   "forwardPorts": [3000, 8000, 7700],
   "workspaceFolder": "/workspace",
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3 python3-pip && pip3 install --upgrade pip && pip3 install -r /workspace/backend/requirements.txt && cd /workspace/frontend && npm install",
